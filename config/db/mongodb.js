@@ -34,6 +34,8 @@ const DB = function() {
   db.on("error", console.error.bind(console, "connection error:"));
   db.once("open", function() {
     console.log("Connected to DB");
+    // Testing Cassandra DB Connection without Abstract Class
+    // cassandraDatabase.createModel(require('./../../models/userOrganisationsModel.js'))
   });
 
   const createModel = function(opts) {
