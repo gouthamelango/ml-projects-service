@@ -20,7 +20,7 @@ module.exports = {
             },
             createdFor: {
                 type: "list",
-                typeof: "<varchar>"
+                typeDef: "<varchar>"
             },
             status: {
                 type: "varchar",
@@ -45,12 +45,12 @@ module.exports = {
             },
             tasks: {
                 type: "set",
-                typeof: "<uuid>",
+                typeDef: "<uuid>",
                 default: []
             },
             rootOrganisations: {
                 type: "list",
-                typeof: "<varchar>"
+                typeDef: "<varchar>"
             },
             learningResources: {
                 type: "fozen",
@@ -138,7 +138,7 @@ module.exports = {
             },
             taskSequence: {
                 type: "list",
-                typeof: "<varchar>",
+                typeDef: "<varchar>",
                 default: []
             },
             completedDate: {
@@ -146,7 +146,7 @@ module.exports = {
             },
             recommendedFor: {
                 type: "list",
-                typeof: "<varchar>",
+                typeDef: "<varchar>",
                 default: []
             }
         },
