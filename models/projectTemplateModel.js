@@ -57,7 +57,8 @@ module.exports = {
                     3: 0,
                     4: 0,
                     5: 0
-                }
+                },
+                typeDef:"<int,int>"
             },
             noOfRatings: {
                 type: "int",
@@ -111,11 +112,12 @@ module.exports = {
             },
             recommendedFor: {
                 type: "frozen",
-                typeDef: "<recommendedFor>"
+                typeDef: "<recommended_for>"
             },
             tasks: {
-                type: "map",
-                typeDef: "<uuid>"
+                type: "set",
+                typeDef: "<uuid>",
+                default : []
             },
             taskSequence: {
                 type: "list",
@@ -130,6 +132,6 @@ module.exports = {
         },
         key: ["id"],
     },
-    name: "projectTemplates",
+    name: "project_templates",
     db_type: "cassandra"
 } 
