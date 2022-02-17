@@ -31,7 +31,7 @@ module.exports = {
             value: "varchar",
     },
 
-    recommendedFor:{
+    recommended_for:{
         roleId: "uuid",
         code :"varchar"
         

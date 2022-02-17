@@ -53,7 +53,7 @@ module.exports = {
                 typeDef: "<varchar>"
             },
             learningResources: {
-                type: "fozen",
+                type: "frozen",
                 typeDef: "<learning_resources>",
                 default: []
             },
@@ -64,7 +64,7 @@ module.exports = {
                 type: "varchar"
             },
             metaInformation: {
-                type: "fozen",
+                type: "frozen",
                 typeDef: "<meta_information>",
                 default: {}
             },
