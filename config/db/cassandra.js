@@ -31,6 +31,7 @@ var DB = function () {
                 replication_factor: 1
             },
             migration: 'safe',
+            udts: require('./udt')
         }
     });
 
