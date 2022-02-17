@@ -41,6 +41,43 @@ module.exports = {
         value :"varchar",
         label: "varchar"
     },
+    evidence_solution:{   
+    externalId :"varchar",
+    Tip :"varchar",
+    Name : "varchar",
+    Description :"varchar",
+    modeOfCollection :"varchar",
+    canBeNotApplicable: "boolean",
+    notApplicable: "boolean",
+    canBeNotAllowed :"boolean",
+    Remarks : "varchar"
+
+    },
+
+   scope_solution :{
+    entities: "set<uuid>",
+    entityType: "varchar",
+    entityTypeId: "uuid",
+    //not able to create roles 
+    // Roles :"list <map <varchar, text>>"
+
+
+   },
+
+   payload :{
+    question : "list<text>",
+    labels :"list<text>",
+    responseType :"varchar",
+    filesNotUploaded :"list<text>"
+
+   },
+
+   
+
+   
+
+
+
 
 
 }
