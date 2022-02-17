@@ -79,7 +79,7 @@ module.exports = {
                 default: "SYSTEM"
             },
             description: {
-                type: varchar,
+                type: "varchar",
                 default: ""
             },
             keywords: {
