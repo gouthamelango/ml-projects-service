@@ -35,7 +35,12 @@ const DB = function() {
   db.once("open", function() {
     console.log("Connected to DB");
     // Testing Cassandra DB Connection without Abstract Class
-    // cassandraDatabase.createModel(require('./../../models/userOrganisationsModel.js'))
+    cassandraDatabase.createModel(require('./../../models/projectModel.js'))
+    cassandraDatabase.createModel(require('./../../models/projectTemplateModel.js'))
+    cassandraDatabase.createModel(require('./../../models/projectAttributesModel.js'))
+    cassandraDatabase.createModel(require('./../../models/projectCategoriesModel.js'))
+    cassandraDatabase.createModel(require('./../../models/projectTemplateTasksModel.js'))
+    cassandraDatabase.createModel(require('./../../models/taskAttributesModel.js'))
   });
 
   const createModel = function(opts) {
