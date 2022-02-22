@@ -72,12 +72,11 @@ module.exports = {
 
    },
 
-   
-
-   
-
-
-
+   visible_if:{
+       id: "uuid",
+       operator: "varchar",
+       value: "varchar"
+   }
 
 
 }
