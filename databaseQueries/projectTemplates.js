@@ -6,6 +6,7 @@
  */
 
 // Dependencies 
+const { uuidFromString } = require('express-cassandra');
 
 /**
     * ProjectTemplates
@@ -46,40 +47,37 @@ module.exports = class ProjectTemplates {
      * @returns {Array} Lists of template. 
      */
     
-    static templateDocument(
-        filterData = "all", 
-        fieldsArray = "all",
-        skipFields = "none"
-    ) {
-        return new Promise(async (resolve, reject) => {
-            try {
-                let queryObject = (filterData != "all") ? filterData : {};
-                let projection = {}
-           
-                if (fieldsArray != "all") {
-                    fieldsArray.forEach(field => {
-                        projection[field] = 1;
-                   });
-               }
-               
-               if( skipFields !== "none" ) {
-                   skipFields.forEach(field=>{
-                       projection[field] = 0;
-                   });
-               }
-               let templates = 
-               await database.models.projectTemplates.find(
-                   queryObject, 
-                   projection
-               ).lean();
-           
-               return resolve(templates);
-           
-           } catch (error) {
-               return reject(error);
-           }
-       });
-   }
+		 static templateDocument(
+			filterData = "all",
+			fieldsArray = "all",
+			skipFields = "none"
+		) {
+			return new Promise(async (resolve, reject) => {
+				const queryObject = filterData != "all" ? filterData : {};
+				const projection = fieldsArray != "all" ? fieldsArray : [];
+				const omitFields = skipFields != "none" ? skipFields : [];
+				try{
+                    if(queryObject["id"]) {
+                        queryObject["id"] = uuidFromString(queryObject['id']);
+                    }
+					const projectTemplate = await cassandra.models.projectTemplates.findAsync(
+						queryObject, 
+						{
+							select: projection,
+							raw: true,
+							allow_filtering: !queryObject.name,
+						});
+                    const templatesWithoutOmittedFields = projectTemplate.map((template) =>
+                        _.omit(template, omitFields)
+					);
+					return resolve(templatesWithoutOmittedFields);
+				} catch (error) {
+					console.log(err);
+					return reject(err);
+				}
+			});
+		}
+	
 
    /**
    * Create project templates documents.
@@ -90,18 +88,25 @@ module.exports = class ProjectTemplates {
    */
 
     static createTemplate(templateData) {
-        return new Promise(async (resolve, reject) => {
-        
-            try {
-              
-              let projectTemplate = await database.models.projectTemplates.create(templateData);
-              return resolve(projectTemplate);
-
-            } catch (error) {
-              return reject(error);
-            }
-        });
-    }
+			return new Promise(async (resolve, reject) => {
+				try {
+					const dataToSave = Array.isArray(templateData)
+						? templateData
+						: [templateData];
+					await Promise.all(
+						dataToSave.map(
+							(template) => {
+								let projectTemplate = new cassandraDatabase.models.projectTemplates(template);
+								return projectTemplate.saveAsync(); //Returns a promise
+							}
+						)
+					);
+					return resolve();
+				} catch (error) {
+					return reject(error);
+				}
+			});
+		}
 
     /**
    * Update project templates documents.
@@ -112,16 +117,26 @@ module.exports = class ProjectTemplates {
    * @returns {Array} - Project templates data.
    */
 
-    static findOneAndUpdate(findQuery,UpdateObject, returnData = {}) {
+    static findOneAndUpdate(findQuery,updateObject, returnData = {}) {
         return new Promise(async (resolve, reject) => {
-        
             try {
-              
-              let projectTemplate = await database.models.projectTemplates.findOneAndUpdate(findQuery,UpdateObject, returnData);
-              return resolve(projectTemplate);
-
-            } catch (error) {
-              return reject(error);
+                if(findQuery["id"]) {
+                    findQuery["id"] = uuidFromString(findQuery['id']);
+                }
+                // Find one and update in express cassandra
+                let instanceToUpdate = await cassandraDatabase.models.projectTemplates.findOneAsync(findQuery);
+                // spread operator can be used.
+                for (let field in updateObject){
+                    instanceToUpdate[field] = updateObject[field];
+                }
+                await instanceToUpdate.saveAsync();
+                //Currently empty
+                return resolve();
+                
+                   
+            } catch (err) {
+                console.log(err);
+                return reject(err);
             }
         });
     }

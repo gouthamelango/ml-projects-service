@@ -726,7 +726,7 @@ module.exports = class ProjectTemplates extends Abstract {
 
                 let projectTemplate = await projectTemplatesHelper.update(
                   req.params._id, 
-                  req.body, 
+                  req.body,
                   req.userDetails.id
                 );
 

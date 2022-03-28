@@ -68,4 +68,7 @@ config/credentials/*
 # all DS_Store files
 *.DS_Store
 
+# keycloak public key
+keycloak-public-keys/
+
 package-lock.json

@@ -19,6 +19,19 @@ const mongodb_connect = function () {
 };
 
 /**
+  * Cassandra Database configuration.
+  * @method
+  * @name cassandra_connect
+*/
+
+let cassandra_connect = function () {
+  global.cassandraDatabase = require("./db/cassandra")();
+  if( !global.Abstract ){
+    global.Abstract = require("../generics/abstract");
+  }
+};
+
+/**
   * Kafka connection.
   * @function
   * @name kafka_connect
@@ -36,5 +49,6 @@ const configuration = {
 
 mongodb_connect();
 kafka_connect();
+cassandra_connect();
 
 module.exports = configuration;
