@@ -132,6 +132,7 @@ module.exports = class ProjectTemplates {
                 await instanceToUpdate.saveAsync();
                 //Currently empty
                 return resolve();
+                
                    
             } catch (err) {
                 console.log(err);
