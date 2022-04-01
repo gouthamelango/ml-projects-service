@@ -6,7 +6,7 @@
  */
 
 // Dependencies 
-
+const { uuidFromString } = require('express-cassandra');
 /**
     * Solutions
     * @class
@@ -31,30 +31,27 @@ module.exports= class Solutions{
         skipFields = "none"
     ) {
         return new Promise(async (resolve, reject) => {
+            let queryObject = (filterData != "all") ? filterData : {};
+            const projection = fieldsArray != "all" ? fieldsArray : [];
+            const omitFields = skipFields != "none" ? skipFields : [];
+       
             try {
-                let queryObject = (filterData != "all") ? filterData : {};
-                let projection = {}
-           
-                if (fieldsArray != "all") {
-                    fieldsArray.forEach(field => {
-                        projection[field] = 1;
-                   });
-               }
-               
-               if( skipFields !== "none" ) {
-                   skipFields.forEach(field=>{
-                       projection[field] = 0;
-                   });
-               }
-               let solutionsDoc = 
-               await database.models.solutions.find(
-                   queryObject, 
-                   projection
-               ).lean();
-           
-               return resolve(solutionsDoc);
-           
+                if(queryObject["id"]) {
+                    queryObject["id"] = uuidFromString(queryObject['id']);
+                }
+                const solutions = await cassandra.models.solutions.findAsync(
+                    queryObject, 
+                    {
+                        select: projection,
+                        raw: true,
+                        allow_filtering: true,
+                    });
+                const solutionsWithoutOmittedFields = solutions.map((solution) =>
+                    _.omit(template, omitFields)
+                );
+                return resolve(solutionsWithoutOmittedFields);
            } catch (error) {
+               console.log(error);
                return reject(error);
            }
        });

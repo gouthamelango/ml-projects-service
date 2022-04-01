@@ -28,7 +28,7 @@ module.exports = class ProjectTemplates {
         
             try {
               
-              let projectTemplatesData = await database.models.projectTemplates.aggregate(aggregateData);
+              let projectTemplatesData = await database.models.project_templates.aggregate(aggregateData);
               return resolve(projectTemplatesData);
 
             } catch (error) {
@@ -60,20 +60,20 @@ module.exports = class ProjectTemplates {
                     if(queryObject["id"]) {
                         queryObject["id"] = uuidFromString(queryObject['id']);
                     }
-					const projectTemplate = await cassandra.models.projectTemplates.findAsync(
+					const projectTemplates = await cassandra.models.project_templates.findAsync(
 						queryObject, 
 						{
 							select: projection,
 							raw: true,
 							allow_filtering: !queryObject.name,
 						});
-                    const templatesWithoutOmittedFields = projectTemplate.map((template) =>
+                    const templatesWithoutOmittedFields = projectTemplates.map((template) =>
                         _.omit(template, omitFields)
 					);
 					return resolve(templatesWithoutOmittedFields);
 				} catch (error) {
-					console.log(err);
-					return reject(err);
+					console.log(error);
+					return reject(error);
 				}
 			});
 		}
@@ -96,7 +96,7 @@ module.exports = class ProjectTemplates {
 					await Promise.all(
 						dataToSave.map(
 							(template) => {
-								let projectTemplate = new cassandraDatabase.models.projectTemplates(template);
+								let projectTemplate = new cassandraDatabase.models.project_templates(template);
 								return projectTemplate.saveAsync(); //Returns a promise
 							}
 						)
@@ -124,7 +124,7 @@ module.exports = class ProjectTemplates {
                     findQuery["id"] = uuidFromString(findQuery['id']);
                 }
                 // Find one and update in express cassandra
-                let instanceToUpdate = await cassandraDatabase.models.projectTemplates.findOneAsync(findQuery);
+                let instanceToUpdate = await cassandraDatabase.models.project_templates.findOneAsync(findQuery);
                 // spread operator can be used.
                 for (let field in updateObject){
                     instanceToUpdate[field] = updateObject[field];
@@ -132,7 +132,6 @@ module.exports = class ProjectTemplates {
                 await instanceToUpdate.saveAsync();
                 //Currently empty
                 return resolve();
-                
                    
             } catch (err) {
                 console.log(err);
@@ -142,7 +141,7 @@ module.exports = class ProjectTemplates {
     }
 
      /**
-    * Update projectTemplates document.
+    * Update project_templates document.
     * @method
     * @name updateProjectTemplateDocument
     * @param {Object} query - query to find document
@@ -153,6 +152,9 @@ module.exports = class ProjectTemplates {
    static updateProjectTemplateDocument(query= {}, updateObject= {}) {
     return new Promise(async (resolve, reject) => {
         try {
+            if(query["id"]) {
+                query["id"] = uuidFromString(query['id']);
+            }
 
             if (Object.keys(query).length == 0) {
                 throw new Error(CONSTANTS.apiResponses.UPDATE_QUERY_REQUIRED)
@@ -162,15 +164,15 @@ module.exports = class ProjectTemplates {
                 throw new Error (CONSTANTS.apiResponses.UPDATE_OBJECT_REQUIRED)
             }
 
-            let updateResponse = await database.models.projectTemplates.updateOne
+            await database.models.project_templates.updateOne
             (
                 query,
                 updateObject
             )
             
-            if (updateResponse.nModified == 0) {
-                throw new Error(CONSTANTS.apiResponses.FAILED_TO_UPDATE)
-            }
+            // if (updateResponse.nModified == 0) {
+            //     throw new Error(CONSTANTS.apiResponses.FAILED_TO_UPDATE)
+            // }
 
             return resolve({
                 success: true,

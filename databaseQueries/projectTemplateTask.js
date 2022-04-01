@@ -6,7 +6,7 @@
  */
 
 // Dependencies 
-
+const { uuidFromString } = require('express-cassandra');
 /**
     * ProjectTemplateTask
     * @class
@@ -30,34 +30,28 @@ module.exports = class ProjectTemplateTask {
         skipFields = "none"
     ) {
         return new Promise(async (resolve, reject) => {
+            const queryObject = filterData != "all" ? filterData : {};
+            const projection = fieldsArray != "all" ? fieldsArray : [];
+            const omitFields = skipFields != "none" ? skipFields : [];
             try {
-                
-                let queryObject = (filterData != "all") ? filterData : {};
-                let projection = {}
-           
-                if (fieldsArray != "all") {
-                    fieldsArray.forEach(field => {
-                        projection[field] = 1;
-                   });
-               }
-               
-               if( skipFields !== "none" ) {
-                   skipFields.forEach(field=>{
-                       projection[field] = 0;
-                   });
-               }
-               
-               let templateTasks = 
-               await database.models.projectTemplateTasks.find(
-                   queryObject, 
-                   projection
-               ).lean();
-           
-               return resolve(templateTasks);
-           
-           } catch (error) {
-               return reject(error);
-           }
+                if(queryObject["id"]) {
+                    queryObject["id"] = uuidFromString(queryObject['id']);
+                }
+                const projectTemplateTasks = await cassandra.models.project_template_tasks.findAsync(
+                    queryObject, 
+                    {
+                        select: projection,
+                        raw: true,
+                        allow_filtering: true,
+                    });
+                const templateTasksWithoutOmittedFields = projectTemplateTasks.map((template) =>
+                    _.omit(template, omitFields)
+                );
+                return resolve(templateTasksWithoutOmittedFields);
+            } catch (error) {
+                console.log(error);
+                return reject(error);
+            }
        });
    }
 
@@ -73,10 +67,18 @@ module.exports = class ProjectTemplateTask {
         return new Promise(async (resolve, reject) => {
         
             try {
-              
-              let templateTask = await database.models.projectTemplateTasks.create(templateData);
-              return resolve(templateTask);
-
+                const dataToSave = Array.isArray(templateData)
+                    ? templateData
+                    : [templateData];
+                await Promise.all(
+                    dataToSave.map(
+                        (template) => {
+                            let projectTemplate = new cassandraDatabase.models.project_template_task(template);
+                            return projectTemplate.saveAsync(); //Returns a promise
+                        }
+                    )
+                );
+                return resolve();
             } catch (error) {
               return reject(error);
             }
@@ -95,6 +97,9 @@ module.exports = class ProjectTemplateTask {
    static updateTaskDocument(query= {}, updateObject= {}) {
         return new Promise(async (resolve, reject) => {
             try {
+                if(query["id"]) {
+                    query["id"] = uuidFromString(query['id']);
+                }
 
                 if (Object.keys(query).length == 0) {
                     throw new Error(CONSTANTS.apiResponses.UPDATE_QUERY_REQUIRED)
@@ -104,15 +109,15 @@ module.exports = class ProjectTemplateTask {
                     throw new Error (CONSTANTS.apiResponses.UPDATE_OBJECT_REQUIRED)
                 }
 
-                let updateResponse = await database.models.projectTemplateTasks.updateOne
+                await database.models.project_template_tasks.updateAsync(query, updateObject);
                 (
                     query,
                     updateObject
-                )
+                );
                 
-                if (updateResponse.nModified == 0) {
-                    throw new Error(CONSTANTS.apiResponses.FAILED_TO_UPDATE)
-                }
+                // if (updateResponse.nModified == 0) {
+                //     throw new Error(CONSTANTS.apiResponses.FAILED_TO_UPDATE)
+                // }
 
                 return resolve({
                     success: true,
@@ -139,16 +144,25 @@ module.exports = class ProjectTemplateTask {
    * @returns {Object} - Project templates task data.
    */
 
-    static findOneAndUpdate(findQuery,UpdateObject, returnData = {}) {
+    static findOneAndUpdate(findQuery,updateObject, returnData = {}) {
         return new Promise(async (resolve, reject) => {
-        
             try {
-              
-              let templateTask = await database.models.projectTemplateTasks.findOneAndUpdate(findQuery,UpdateObject, returnData);
-              return resolve(templateTask);
-
+                if(findQuery["id"]) {
+                    findQuery["id"] = uuidFromString(findQuery['id']);
+                }
+                // Find one and update in express cassandra
+                let instanceToUpdate = await cassandraDatabase.models.project_template_tasks.findOneAsync(findQuery);
+                // spread operator can be used.
+                for (let field in updateObject){
+                    instanceToUpdate[field] = updateObject[field];
+                }
+                await instanceToUpdate.saveAsync();
+                //Currently empty
+                return resolve();
+                   
             } catch (error) {
-              return reject(error);
+                console.log(error);
+                return reject(error);
             }
         });
     }

@@ -6,11 +6,11 @@ module.exports = {
             type: {
                 type: "varchar"
             },
-            isReusable: {
+            reusable: {
                 type: "boolean"
             },
 
-            id: {
+            solutionId: {
                 type: "uuid"
             },
 
@@ -81,9 +81,7 @@ module.exports = {
             author: {
                 type: "varchar"
             },
-
-
-            Deleted: {
+            deleted: {
                 type: "boolean"
             },
             isRubrikDriven: {
@@ -150,7 +148,7 @@ module.exports = {
             //scope i have not defined
 
 
-            isDeleted: {
+            deleted: {
                 type: "boolean"
             },
             rootOrganisations: {
@@ -188,7 +186,6 @@ module.exports = {
             enableQuestionReadOut: {
                 type: "boolean",
                 default: false
-
             },
 
             linkTitle: {
@@ -211,7 +208,6 @@ module.exports = {
                 type: "map",
                 typeDef: "<varchar, varchar>",
             },
-
             __v: {
                 type: "int"
             },
@@ -239,10 +235,10 @@ module.exports = {
             endDate: {
                 type: "timestamp"
             },
-            Link: {
+            link: {
                 type: "varchar"
             },
-            Creator: {
+            creator: {
                 type: "varchar"
             },
             minNoOfSubmissionsRequired: {
@@ -251,8 +247,6 @@ module.exports = {
             },
             //not defined as it required udt
             // *[license]* license
-
-
         }
         ,
         key: ["id"],
@@ -260,4 +254,3 @@ module.exports = {
     name: "solutions",
     db_type: "cassandra"
 }
-
