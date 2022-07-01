@@ -1,0 +1,116 @@
+{
+    "objectType": "Collections",
+    "external": {
+      "tableName": "projectTemplates",
+      "properties": {
+        "hierarchy": {
+          "type": "string"
+        },
+        "relational_metadata": {
+            "type": "string"
+          }
+        },
+        "primaryKey": [
+          "projectTemplateId"
+        ]
+      },
+        "properties": {
+            "projectTemplateId": {
+                "type": "string"
+            },
+            "isReusable": {
+                "type": "boolean"
+            },
+            "status": {
+                "type": "string"
+            },  
+            "externalId": {
+                "type": "string"
+            },                          
+            "solutionId": {
+                "type": "string"
+            },
+            "solutionExternalId": {
+                "type": "string"
+            },
+            "programId": {
+                "type": "string"
+            },
+            "programExternalId": {
+                "type": "string"
+            },
+            "parentTemplateId": {
+                "type": "string"
+            },
+            "metaInformation":{
+                "type":"string",
+                "properties": [
+             "rationale",
+              "primaryAudience",
+             "goals",
+             "duration",
+             "successIndicators",
+             "risks",
+             "approaches"
+                ]  
+            },
+            "entityType": {
+                "type": "string"
+            },
+            "title": {
+                "type": "string"
+            },
+            "ratings": {
+                "type": "string"
+            },
+            "averageRating": {
+                "type": "integer"
+            },
+            "noOfRatings": {
+                "type": "integer"
+            },
+            "createdBy": {
+                "type": "string"
+            },
+            "updatedBy": {
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            },
+            "keywords": {
+                "type": "string"
+            },
+            "learningResources":{ 
+                "type":"string",
+            "categories": {
+                "properties": [
+                    "id",
+                    "externalId",
+                    "name"
+                ]
+            }
+            },
+            "createdOn": {
+                "type": "timestamp"
+            },
+            "updatedOn": {
+                "type": "timestamp"
+            },
+            "recommendedFor": {
+                "properties": [
+                    "roleId",
+                    "code"
+                ]
+            },
+            "tasks": {
+                "type": "string"
+            },
+            "taskSequence": {
+                "type": "string"
+            }
+        }
+    }
+    
+
+        

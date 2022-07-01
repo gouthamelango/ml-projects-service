@@ -1,0 +1,91 @@
+{
+    "objectType": "Collections",
+    "external": {
+      "tableName": "projectTemplatesTasks",
+      "properties": {
+        "hierarchy": {
+          "type": "string"
+        },
+        "relational_metadata": {
+            "type": "string"
+          }
+        },
+        "primaryKey": [
+          "projectTemplateTaskId"
+        ]
+      },
+      "properties": {
+        "projectTemplateTaskId": {
+            "type": "string"
+        },
+        "externalId": {
+            "type": "string"
+        },
+        "parentId": {
+            "type": "string"
+        },
+        "projectTemplateExternalId": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string"
+        },
+        "children": {
+            "type": "string"
+        },
+        "learningResources": {
+            "type":"string",
+            "properties": [
+                "name",
+                "id",
+                "app",
+                "link",
+                "isChecked"
+        ]
+        },
+        "description": {
+            "type": "string"
+        },
+        "hasSubTasks": {
+            "type": "boolean"
+        },
+        "solutionDetails": {
+            "type": "string"
+        },
+        "hasSequenceNumber": {
+            "type": "string"
+        },
+        "taskSequence": {
+            "type": "string"
+        },
+        "deletable": {
+            "type": "string"
+        },
+        "taskType": {
+            "type": "string"
+        },
+        "visibleIf": {
+            "type":"string",
+            "properties": [
+                "id",	
+                "operator",
+                "value"
+            ]
+        },
+        "createdBy": {
+            "type": "string"
+        },
+        "updatedBy": {
+            "type": "string"
+        },
+        "createdOn": {
+            "type": "timestamp"
+        },
+        "updatedOn": {
+             "type": "timestamp"
+        }
+    }
+}

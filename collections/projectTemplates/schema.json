@@ -1,0 +1,135 @@
+{
+    "$id": "projectTemplates-schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "projectTemplates",
+    "type":"object",
+    "required": [
+        "projectTemplateId",
+        "reusable",
+        "status",
+        "solutionId",
+        "programId",
+        "parentTemplateId",
+        "metaInformation",
+        "entityType",
+        "title",
+        "ratings",
+        "averageRating",
+        "noOfRatings",
+        "createdBy",
+        "updatedBy",
+        "description",
+        "keywords",
+        "learningResources",
+        "categories",
+        "createdOn",
+        "updatedOn",
+        "recommendedFor",
+        "tasks",
+        "taskSequence"
+    ],
+    "properties": {
+        "projectTemplateId": {
+            "type": "string"
+        },
+        "isReusable": {
+            "type": "boolean"
+        },
+        "status": {
+            "type": "string"
+        },  
+        "externalId": {
+            "type": "string"
+        },                          
+        "solutionId": {
+            "type": "string"
+        },
+        "solutionExternalId": {
+            "type": "string"
+        },
+        "programId": {
+            "type": "string"
+        },
+        "programExternalId": {
+            "type": "string"
+        },
+        "parentTemplateId": {
+            "type": "string"
+        },
+        "metaInformation": {
+            "type":"string",
+            "enum": [
+                "rationale",
+                "primaryAudience",
+                "goals",
+                "duration",
+                "successIndicators",
+                "risks",
+                "approaches"
+            ]
+        },
+        "entityType": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "ratings": {
+            "type": "string"
+        },
+        "averageRating": {
+            "type": "number"
+        },
+        "noOfRatings": {
+            "type": "number"
+        },
+        "createdBy": {
+            "type": "string"
+        },
+        "updatedBy": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "keywords": {
+            "type": "string"
+        },
+        "learningResources": {
+            "type": "string",
+            "enum": [
+                "name",
+                "id",
+                "app",
+                "link"
+            ]
+        },
+        "categories": {
+            "type":"string",
+            "enum": [
+                "id",
+                "externalId",
+                "name"
+            ]
+        },
+        "createdOn": {
+            "type": "string"
+        },
+        "updatedOn": {
+            "type": "string"
+        },
+        "recommendedFor": {
+            "type":"string",
+            "enum": [
+                "roleId",
+                "code"
+            ]
+        },
+        "tasks": {
+            "type": "string"
+        },
+        "taskSequence": {
+            "type": "string"
+        }
+    }
+}
