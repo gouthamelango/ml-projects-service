@@ -1,7 +1,7 @@
 {
     "$id": "projectTemplatesTasks-schema.json",
     "$schema": "http://json-schema.org/draft-07/schema",
-    "title": "projectTemplatesTasks",
+    "title": "projectTemplatesTask",
     "type":"object",
     "required": [
         "projectTemplateTaskId",
@@ -38,10 +38,26 @@
             "type": "string"
         },
         "name": {
-            "type": "string"
+            "type": "string",
+            "minLength": 5
         },
         "status": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+                "Draft",
+                "Review",
+                "Redraft",
+                "Flagged",
+                "Live",
+                "Unlisted",
+                "Retired",
+                "Mock",
+                "Processing",
+                "FlagDraft",
+                "FlagReview",
+                "Failed"
+            ],
+            "default": "Draft"
         },
         "children": {
             "type": "string"
@@ -60,7 +76,8 @@
             "type": "string"
         },
         "hasSubTasks": {
-            "type": "boolean"
+            "type": "boolean",
+            "default" : false
         },
         "solutionDetails": {
             "type": "string"

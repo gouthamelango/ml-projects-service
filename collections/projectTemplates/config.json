@@ -1,7 +1,7 @@
 {
-    "objectType": "Collections",
+    "objectType": "Collection",
     "external": {
-      "tableName": "projectTemplates",
+      "tableName": "projectTemplate",
       "properties": {
         "hierarchy": {
           "type": "string"
@@ -111,6 +111,6 @@
             }
         }
     }
-    
+
 
         
