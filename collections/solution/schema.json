@@ -1,0 +1,224 @@
+{
+    "$id": "projectTemplatesTasks-schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "projectTemplatesTask",
+    "type":"object",
+    "required": [
+        "solutionId",
+        "reusable",
+        "name",
+        "description",
+        "author",
+        "parentSolutionId",
+        "keywords",
+        "createdBy",
+        "scoringSystem",
+        "themes",
+        "levelToScoreMapping",
+        "flattenedThemes",
+        "questionSequenceByEcm",
+        "entities",
+        "entityType",
+        "taskType",
+        "rootOrganisations",
+        "projectTemplateId",
+        "programId",
+        "startDate",
+        "endDate",
+        "status",
+        "evidenceMethods",
+        "sections",
+        "registry",
+        "frameworkId",
+        "noOfRatingLevels",
+        "rubricDriven",
+        "enableQuestionReadOut",
+        "roles",
+        "observationMetaFormKey",
+        "updatedBy",
+        "captureGpsLocationAtQuestionLevel",
+        "sendSubmissionRatingEmailsTo",
+        "createdFor",
+        "privateProgram",
+        "assessmentMetaFormKey",
+        "allowMultipleAssessents",
+        "project",
+        "referenceFrom",
+        "license",
+        "pageHeading",
+        "criteriaLevelReport",
+        "scope",
+        "link",
+        "minNoOfSubmissionsRequired",
+        "entityProfileFieldsPerEntityTypes",
+        "createdOn",
+        "updatedOn"
+    ],
+    "properties": {
+        "solutionId": {
+            "type": "string"
+        },
+        "reusable": {
+            "type": "boolean"
+        },
+        "name": {
+            "type": "string",
+            "minLength": 5
+        },
+        "description": {
+            "type": "string"
+        },
+        "author": {
+            "type": "string"
+        },
+        "parentSolutionId": {
+            "type": "string"
+        },   
+        "keywords": {
+            "type": "string"
+        },
+        "createdBy": {
+            "type": "string"
+        },
+        "scoringSystem": {
+            "type": "string"
+        },
+        "themes": {
+            "type": "string"
+        },
+        "levelToScoreMapping": {
+            "type": "string"
+        },    
+        "flattenedThemes": {
+            "type": "string"
+        },
+        "questionSequenceByEcm": {
+            "type": "string"
+        },
+        "entities": {
+            "type": "string"
+        },
+        "entityType": {
+            "type": "string"
+        },
+        "taskType": {
+            "type": "string" 
+        },
+        "rootOrganisations ": {
+            "type": "string"
+        },
+        "projectTemplateId": {
+            "type": "string"
+        },
+        "programId": {
+            "type": "string"
+        },
+        "startDate":{
+          "type": "string"
+        },
+        "endDate": {
+                "type": "string"
+            },
+        "status": {
+            "type": "string",
+            "enum": [
+                "Draft",
+                "Review",
+                "Redraft",
+                "Flagged",
+                "Live",
+                "Unlisted",
+                "Retired",
+                "Mock",
+                "Processing",
+                "FlagDraft",
+                "FlagReview",
+                "Failed"
+            ],
+            "default": "Draft"
+        },
+        "evidenceMethods": {
+            "type": "string"
+        },
+        "sections": {
+            "type": "string"
+        },
+        "registry": {
+            "type": "string"
+        },
+        "frameworkId": {
+            "type": "string"
+        },
+        "noOfRatingLevels": {
+            "type": "integer"
+        },
+        "rubricDriven": {
+            "type": "boolean"
+        },
+        "enableQuestionReadOut": {
+            "type": "boolean"
+        },
+        "roles": {
+            "type": "string"
+        },
+        "observationMetaFormKey ": {
+            "type": "string"
+        },
+        "updatedBy": {
+            "type": "string"
+        },
+        "captureGpsLocationAtQuestionLevel": {
+            "type": "boolean"
+        },
+        "sendSubmissionRatingEmailsTo": {
+            "type": "string"
+        },
+        "createdFor": {
+            "type": "string"
+        },
+        "privateProgram": {
+            "type": "boolean"
+        },
+        "assessmentMetaFormKey": {
+            "type": "string"
+        },
+        "allowMultipleAssessemts": {
+            "type": "boolean"
+        },
+        "project ": {
+            "type": "string"
+        },
+        "referenceFrom": {
+            "type": "string"
+        },
+        "license": {
+            "type": "string"
+        },
+        "pageHeading": {
+            "type": "string"
+        },
+        "criteriaLevelReport": {
+            "type": "boolean"
+        },
+        "scope": {
+            "type": "string"
+        },
+        "link": {
+            "type": "string"
+        },
+        "minNoOfSubmissionsRequired": {
+            "type": "integer"
+         },
+         "entityProfileFieldsPerEntityTypes": {
+            "type": "string"
+          },
+          "createdOn": {
+            "type": "string"
+        },
+          "updatedOn": {
+                "type": "string"
+        }
+    }
+}
+
+

@@ -1,0 +1,61 @@
+{
+    "$id": "projectCategorie-schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "projectCategorie",
+    "type":"object",
+    "required": [
+        "projectCategoryId",
+        "name",
+        "visible",
+        "status",
+        "icon",
+        "noOfProjects",
+        "createdBy",
+        "updatedBy",
+        "createdOn",
+        "updatedOn"
+    ],
+    "properties": {
+        "projectCategoryId" :{
+            "type": "string",
+            "format": "unique"
+        },
+        "externalID" : {
+            "type": "string"
+        },	
+        "name"	: {
+            "type": "string"
+        },
+        "visibility": {
+            "type": "string",
+            "enum": [
+                "Default",
+                "Parent",
+                "Private",
+                "Protected"
+            ],
+            "default": "Default"
+        },
+        "status": {
+            "type": "string"
+        },
+        "icon": {
+            "type": "string"
+        },
+        "noOfProjects" : {
+            "type": "integer"
+        },
+        "createdBy" : {
+            "type": "string"
+        },
+        "updatedBy" : {
+            "type": "string"
+        },
+        "createdOn" : {
+            "type": "string"
+        },
+        "updatedOn": {
+            "type": "string"
+        }  
+    }
+}

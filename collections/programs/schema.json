@@ -1,0 +1,148 @@
+{
+    "$id": "program-schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "program",
+    "type":"object",
+    "required": [
+        "programId",
+        "name",
+        "description",
+        "createdOn",
+        "createdFor",
+        "createdBy",
+        "updatedBy",
+        "endDate",
+        "status",
+        "updatedOn",
+        "startDate",
+        "rootOrganisations",
+        "keywords",
+        "imageCompression",
+        "components",
+        "privateProgram",
+        "scope"
+    ],
+    "properties": {
+        "programId": {
+            "type":"string",
+            "format": "unique"
+        },
+        "externalId": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string",
+            "minLength": 5
+        },
+        "description": {
+            "type": "string"
+        },
+        "owner": {
+            "type": "string"
+        },
+        "createdBy": {
+            "type": "string"
+        },
+        "updatedBy": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string"
+        },
+        "resourceType": {
+            "type": "string",
+            "enum": [
+                "Read",
+                "Learn",
+                "Teach",
+                "Play",
+                "Test",
+                "Practice",
+                "Experiment",
+                "Collection",
+                "Book",
+                "Lesson Plan",
+                "Course",
+                "Theory",
+                "Worksheet",
+                "Practical"
+            ]
+        },
+        "language": {
+            "type": "string",
+            "enum": [
+                "English",
+                "Hindi",
+                "Assamese",
+                "Bengali",
+                "Gujarati",
+                "Kannada",
+                "Malayalam",
+                "Marathi",
+                "Nepali",
+                "Odia",
+                "Punjabi",
+                "Tamil",
+                "Telugu",
+                "Urdu",
+                "Sanskrit",
+                "Maithili",
+                "Munda",
+                "Santali",
+                "Juang",
+                "Ho",
+                "Other"
+            ],
+        "default": ["English"]
+        },
+        "concepts": {
+            "type": "string"
+        },
+        "keywords": {
+            "type": "string"
+        },
+        "rootOrganisations":{
+            "type": "string"
+        },
+        "imageCompression": {
+            "type": "string"
+        },
+        "components": {
+            "type": "string"
+        },
+        "privateProgram":{
+            "type": "boolean"
+        },
+        "createdOn": {
+            "type": "string"
+        },
+        "createdFor": {
+            "type": "string"
+        },
+            "endDate": {
+                "type": "string"
+            },
+            "updatedOn": {
+                "type": "string"
+            },
+            "startDate":{
+                "type": "string"
+            },
+        "scope": {
+            "type": "string",
+            "enum": [
+                "entityType",
+                "entityTypeId",
+                "entities"
+            ]
+        },
+                "roles": {
+                    "type":"string",
+                    "enum": [
+                        "id",
+                        "code"
+                    ]
+                    }
+                }
+            }
+    

@@ -14,15 +14,19 @@
           "projectTemplateId"
         ]
       },
-        "properties": {
+      "body": {
             "projectTemplateId": {
+                "id": "unique",
                 "type": "string"
             },
             "isReusable": {
-                "type": "boolean"
+                "type": "boolean",
+                "default" : true,
+            "index" : false
             },
             "status": {
-                "type": "string"
+                "type": "string",
+                "default": "Draft"
             },  
             "externalId": {
                 "type": "string"

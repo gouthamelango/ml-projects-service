@@ -33,9 +33,7 @@
             "type": "string"
         },
         "isReusable": {
-            "type": "boolean",
-            "default" : false,
-            "index" : true
+            "type": "boolean"
         },
         "status": {
             "type": "string",
