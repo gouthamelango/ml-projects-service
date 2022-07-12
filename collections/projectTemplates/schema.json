@@ -30,10 +30,13 @@
     ],
     "properties": {
         "projectTemplateId": {
-            "type": "string"
+            "type": "string",
+            "uniqueItems": true
         },
         "isReusable": {
-            "type": "boolean"
+            "type": "boolean",
+            "default" : true,
+            "index" : false
         },
         "status": {
             "type": "string",
@@ -72,16 +75,30 @@
             "type": "string"
         },
         "metaInformation": {
-            "type":"string",
-            "enum": [
-                "rationale",
-                "primaryAudience",
-                "goals",
-                "duration",
-                "successIndicators",
-                "risks",
-                "approaches"
-            ]
+            "type":"object",
+            "properties": {
+                "rationale":{
+                    "type":"string"
+                },
+                "primaryAudience":{
+                    "type":"string"
+                },
+                "goals":{
+                    "type":"string"
+                },
+                "duration":{
+                    "type":"string"
+                },
+                "successIndicators":{
+                    "type":"string"
+                },
+                "risks":{
+                    "type":"string"
+                },
+                "approaches":{
+                    "type":"string"
+                }
+            }
         },
         "entityType": {
             "type": "string"
@@ -112,12 +129,20 @@
         },
         "learningResources": {
             "type": "string",
-            "enum": [
-                "name",
-                "id",
+            "properties":{
+                "name":{
+                    "type":"string",
+                    "minLength":5
+                },
+                "id":{
+                    "type":"string"
+                }
+            },
+                "enum":[
                 "app",
                 "link"
-            ]
+                ]
+            
         },
         "categories": {
             "type":"string",
