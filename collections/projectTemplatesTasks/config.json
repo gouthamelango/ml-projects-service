@@ -19,7 +19,7 @@
         "type": "hasSequenceMember",
         "direction": "in",
         "objects": [
-          "projectTemplates"
+          "projectTemplate"
         ]
       }
     },

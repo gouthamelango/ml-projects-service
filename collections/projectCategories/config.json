@@ -1,55 +1,29 @@
 {
-    "objectType": "Collection",
-    "external": {
-      "tableName": "projectCategory",
-      "properties": {
-        "hierarchy": {
-          "type": "string"
-        },
-        "relational_metadata": {
-            "type": "string"
-          }
-        },
-        "primaryKey": [
-            "projectCategoryId"
-          ]
-        },
-        "properties": {
-            "projectCategoryId" :{
-                "type": "string"
-            },
-            "externalID" : {
-                "type": "string"
-            },	
-            "name"	: {
-                "type": "string"
-            },
-            "visible": {
-                "type": "boolean"
-            },
-            "status": {
-                "type": "string"
-            },
-            "icon": {
-                "type": "string"
-            },
-            "noOfProjects" : {
-                "type": "number"    
-            },
-            "createdBy" : {
-                "type": "string"
-            },
-            "updatedBy" : {
-                "type": "string"
-            },
-            "createdOn" : {
-                "type": "timestamp"
-            },
-            "updatedOn": {
-                "type": "timestamp"
-            }     
-        }
-    }
-    
+    "objectType": "projectCategorie",
+    "version": "disable",
+    "versionCheckMode": "OFF",
+    "frameworkCategories": [],
+    "orgFrameworkTerms": [],
+    "targetFrameworkTerms": [],
+    "restrictProps": {
+      "create" : [
+        "status"
+      ],
+      "update": [
+     "projectCategoryId"
+      ]
+    },
+    "external": {},
+    "relations": {
+      "terms": {
+        "type": "hasSequenceMember",
+        "direction": "out",
+        "objects": [
+          "Term"
+        ]
+      }
+    },
+    "schema_restrict_api": false
+}
 
     
