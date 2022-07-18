@@ -132,7 +132,7 @@
             "properties":{
                 "name":{
                     "type":"string",
-                    "minLength":5
+                    "minLength": 5
                 },
                 "id":{
                     "type":"string"

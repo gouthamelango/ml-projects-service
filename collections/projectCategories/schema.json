@@ -6,7 +6,7 @@
     "required": [
         "projectCategoryId",
         "name",
-        "visible",
+        "visibility",
         "status",
         "icon",
         "noOfProjects",
@@ -37,7 +37,11 @@
             "default": "Default"
         },
         "status": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+                "Live",
+                "retired"
+            ]
         },
         "icon": {
             "type": "string"

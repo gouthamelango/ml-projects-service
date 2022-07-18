@@ -1,120 +1,31 @@
 {
-    "objectType": "Collection",
-    "external": {
-      "tableName": "projectTemplate",
-      "properties": {
-        "hierarchy": {
-          "type": "string"
-        },
-        "relational_metadata": {
-            "type": "string"
-          }
-        },
-        "primaryKey": [
-          "projectTemplateId"
+    "objectType": "ProjectTemplate",
+    "version": "disable",
+    "versionCheckMode": "OFF",
+    "frameworkCategories": [],
+    "orgFrameworkTerms": [],
+    "targetFrameworkTerms": [],
+    "restrictProps": {
+      "create" : [
+        "status"
+      ],
+      "update": [
+     "projectTemplateId"
+      ]
+    },
+    "external": {},
+    "relations": {
+      "terms": {
+        "type": "hasSequenceMember",
+        "direction": "out",
+        "objects": [
+          "Term"
         ]
-      },
-      "body": {
-            "projectTemplateId": {
-                "id": "unique",
-                "type": "string"
-            },
-            "isReusable": {
-                "type": "boolean",
-                "default" : true,
-            "index" : false
-            },
-            "status": {
-                "type": "string",
-                "default": "Draft"
-            },  
-            "externalId": {
-                "type": "string"
-            },                          
-            "solutionId": {
-                "type": "string"
-            },
-            "solutionExternalId": {
-                "type": "string"
-            },
-            "programId": {
-                "type": "string"
-            },
-            "programExternalId": {
-                "type": "string"
-            },
-            "parentTemplateId": {
-                "type": "string"
-            },
-            "metaInformation":{
-                "type":"string",
-                "properties": [
-             "rationale",
-              "primaryAudience",
-             "goals",
-             "duration",
-             "successIndicators",
-             "risks",
-             "approaches"
-                ]  
-            },
-            "entityType": {
-                "type": "string"
-            },
-            "title": {
-                "type": "string"
-            },
-            "ratings": {
-                "type": "string"
-            },
-            "averageRating": {
-                "type": "integer"
-            },
-            "noOfRatings": {
-                "type": "integer"
-            },
-            "createdBy": {
-                "type": "string"
-            },
-            "updatedBy": {
-                "type": "string"
-            },
-            "description": {
-                "type": "string"
-            },
-            "keywords": {
-                "type": "string"
-            },
-            "learningResources":{ 
-                "type":"string",
-            "categories": {
-                "properties": [
-                    "id",
-                    "externalId",
-                    "name"
-                ]
-            }
-            },
-            "createdOn": {
-                "type": "timestamp"
-            },
-            "updatedOn": {
-                "type": "timestamp"
-            },
-            "recommendedFor": {
-                "properties": [
-                    "roleId",
-                    "code"
-                ]
-            },
-            "tasks": {
-                "type": "string"
-            },
-            "taskSequence": {
-                "type": "string"
-            }
-        }
-    }
+      }
+    },
+    "schema_restrict_api": false
+}
 
+      
 
         
