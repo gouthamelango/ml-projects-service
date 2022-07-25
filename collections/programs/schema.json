@@ -8,24 +8,17 @@
         "name",
         "description",
         "createdOn",
-        "createdFor",
         "createdBy",
         "updatedBy",
-        "endDate",
         "status",
         "updatedOn",
-        "startDate",
-        "rootOrganisations",
         "keywords",
-        "imageCompression",
-        "components",
-        "privateProgram",
-        "scope"
+        "scope",
+        "resourceType"
     ],
     "properties": {
         "programId": {
-            "type":"string",
-            "format": "unique"
+            "type":"string"
         },
         "externalId": {
             "type": "string"

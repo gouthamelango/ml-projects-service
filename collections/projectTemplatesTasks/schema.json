@@ -5,29 +5,16 @@
     "type":"object",
     "required": [
         "projectTemplateTaskId",
-        "projectTemplateID",
+        "projectTemplateId",
         "parentId",
         "name",
         "status",
         "children",
-        "learningResources",
-        "description",
-        "hasSubTasks",
-        "solutionDetails",
-        "hasSequenceNumber",
-        "deletable",
-        "taskSequence",
-        "taskType",
-        "visibleIf",
-        "createdBy",
-        "updatedBy",
-        "createdOn",
-        "updatedOn"
+        "learningResources"
     ],
     "properties": {
         "projectTemplateTaskId": {
-            "type": "string",
-            "uniqueItems": true
+            "type": "string"
         },
         "externalId": {
             "type": "string"

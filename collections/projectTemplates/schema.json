@@ -11,27 +11,15 @@
         "programId",
         "parentTemplateId",
         "metaInformation",
-        "entityType",
         "title",
         "ratings",
-        "averageRating",
-        "noOfRatings",
-        "createdBy",
-        "updatedBy",
-        "description",
-        "keywords",
         "learningResources",
         "categories",
-        "createdOn",
-        "updatedOn",
-        "recommendedFor",
-        "tasks",
-        "taskSequence"
+        "recommendedFor"
     ],
     "properties": {
         "projectTemplateId": {
-            "type": "string",
-            "uniqueItems": true
+            "type": "string"
         },
         "isReusable": {
             "type": "boolean",

@@ -17,8 +17,7 @@
     ],
     "properties": {
         "projectCategoryId" :{
-            "type": "string",
-            "format": "unique"
+            "type": "string"
         },
         "externalID" : {
             "type": "string"
