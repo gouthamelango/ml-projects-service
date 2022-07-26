@@ -38,6 +38,8 @@
         "status": {
             "type": "string",
             "enum": [
+                "Draft",
+                "Review",
                 "Live",
                 "retired"
             ]

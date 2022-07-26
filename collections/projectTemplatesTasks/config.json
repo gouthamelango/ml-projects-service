@@ -15,7 +15,7 @@
     },
     "external": {},
     "relations": {
-      "terms": {
+      "projectTemplateTask": {
         "type": "hasSequenceMember",
         "direction": "in",
         "objects": [
