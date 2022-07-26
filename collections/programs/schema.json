@@ -40,7 +40,21 @@
             "type": "string"
         },
         "status": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+                "Draft",
+                "Review",
+                "Redraft",
+                "Flagged",
+                "Live",
+                "Unlisted",
+                "Retired",
+                "Mock",
+                "Processing",
+                "FlagDraft",
+                "FlagReview",
+                "Failed"
+            ]
         },
         "resourceType": {
             "type": "string",
