@@ -10,16 +10,16 @@
         "status"
       ],
       "update": [
-     "projectTemplateId"
+     "identifier"
       ]
     },
     "external": {},
     "relations": {
-      "terms": {
+      "projectTemplateTask": {
         "type": "hasSequenceMember",
         "direction": "out",
         "objects": [
-          "Term"
+          "projectTemplateTask"
         ]
       }
     },

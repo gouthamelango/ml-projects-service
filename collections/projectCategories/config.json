@@ -10,16 +10,16 @@
         "status"
       ],
       "update": [
-     "projectCategoryId"
+     "identifier"
       ]
     },
     "external": {},
     "relations": {
-      "terms": {
+      "projectCategorie": {
         "type": "hasSequenceMember",
         "direction": "out",
         "objects": [
-          "Term"
+          "projectTemplate"
         ]
       }
     },

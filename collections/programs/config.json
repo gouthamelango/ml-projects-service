@@ -1,5 +1,5 @@
 {
-    "objectType": "ProjectTemplateTask",
+    "objectType": "program",
     "version": "disable",
     "versionCheckMode": "OFF",
     "frameworkCategories": [],
@@ -15,11 +15,11 @@
     },
     "external": {},
     "relations": {
-      "terms": {
+      "program": {
         "type": "hasSequenceMember",
         "direction": "in",
         "objects": [
-          "projectTemplate"
+          "solution"
         ]
       }
     },

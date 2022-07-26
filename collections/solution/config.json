@@ -1,0 +1,56 @@
+{
+    "objectType": "Solution",
+    "relations": {
+      "children": {
+        "type": "hasSequenceMember",
+        "direction": "out",
+        "objects": [
+          "program",
+          "solution"
+        ]
+      },
+      "collection": {
+        "type": "hasSequenceMember",
+        "direction": "in",
+        "objects": [
+          "solution"
+        ]
+      }
+    },
+    "version": "enable",
+    "versionCheckMode": "OFF",
+    "frameworkCategories": [
+      "projectTemplate",
+      "program",
+      "project",
+      "section"
+    ],
+    "orgFrameworkTerms": [
+      "projectTemplateIds",
+      "programIds",
+      "projectIds",
+      "sectionIds"
+    ],
+    "targetFrameworkTerms": [
+      "targetFWIds",
+      "targetProjectTemplateIds",
+      "targetProgramIds" ,
+      "targetProjectIds",
+      "targetSectionIds"
+    ],
+    "cacheEnabled": false,
+    "schema_restrict_api": true,
+    "restrictProps": {
+      "create": [
+        "children",
+        "status"
+      ],
+      "update": [
+        "children",
+        "visibility",
+        "status"
+      ],
+      "external": {},
+      "primaryKey": ["identifier"]
+    }
+}
