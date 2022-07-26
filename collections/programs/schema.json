@@ -136,13 +136,12 @@
                 "type": "string"
             },
         "scope": {
-            "type": "string",
+            "type": "object",
             "enum": [
                 "entityType",
                 "entityTypeId",
                 "entities"
-            ]
-        },
+            ],
                 "roles": {
                     "type":"string",
                     "enum": [
@@ -150,6 +149,7 @@
                         "code"
                     ]
                     }
+                }
                 }
             }
     
