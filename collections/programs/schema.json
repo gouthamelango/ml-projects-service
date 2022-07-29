@@ -4,7 +4,6 @@
     "title": "program",
     "type":"object",
     "required": [
-        "programId",
         "name",
         "description",
         "createdOn",
@@ -17,17 +16,14 @@
         "resourceType"
     ],
     "properties": {
-        "programId": {
-            "type":"string"
-        },
-        "externalId": {
-            "type": "string"
-        },
         "name": {
             "type": "string",
             "minLength": 5
         },
         "description": {
+            "type": "string"
+        },
+        "externalId": {
             "type": "string"
         },
         "owner": {

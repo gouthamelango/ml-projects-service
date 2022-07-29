@@ -4,7 +4,6 @@
     "title": "projectTemplate",
     "type":"object",
     "required": [
-        "projectTemplateId",
         "reusable",
         "status",
         "solutionId",
@@ -18,9 +17,6 @@
         "recommendedFor"
     ],
     "properties": {
-        "projectTemplateId": {
-            "type": "string"
-        },
         "isReusable": {
             "type": "boolean",
             "default" : true,

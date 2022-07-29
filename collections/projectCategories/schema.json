@@ -4,7 +4,6 @@
     "title": "projectCategorie",
     "type":"object",
     "required": [
-        "projectCategoryId",
         "name",
         "visibility",
         "status",
@@ -15,14 +14,8 @@
         "createdOn",
         "updatedOn"
     ],
-    "properties": {
-        "projectCategoryId" :{
-            "type": "string"
-        },
-        "externalID" : {
-            "type": "string"
-        },	
-        "name"	: {
+    "properties": {	
+        "name" : {
             "type": "string"
         },
         "visibility": {
@@ -45,6 +38,9 @@
             ]
         },
         "icon": {
+            "type": "string"
+        },
+        "externalID" : {
             "type": "string"
         },
         "noOfProjects" : {

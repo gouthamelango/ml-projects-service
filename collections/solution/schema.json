@@ -4,28 +4,20 @@
     "title": "projectTemplatesTask",
     "type":"object",
     "required": [
-        "solutionId",
-        "reusable",
         "name",
+        "reusable",
         "description",
         "author",
         "parentSolutionId",
-        "keywords",
         "createdBy",
         "scoringSystem",
-        "entities",
-        "entityType",
         "taskType",
-        "rootOrganisations",
-        "projectTemplateId",
         "programId",
         "status",
         "sections",
-        "frameworkId",
         "enableQuestionReadOut",
         "roles",
         "updatedBy",
-        "captureGpsLocationAtQuestionLevel",
         "sendSubmissionRatingEmailsTo",
         "createdFor",
         "privateProgram",
@@ -36,15 +28,12 @@
         "updatedOn"
     ],
     "properties": {
-        "solutionId": {
-            "type": "string"
-        },
-        "reusable": {
-            "type": "boolean"
-        },
         "name": {
             "type": "string",
             "minLength": 5
+        },
+        "reusable": {
+            "type": "boolean"
         },
         "description": {
             "type": "string"

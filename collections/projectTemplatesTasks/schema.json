@@ -4,27 +4,15 @@
     "title": "projectTemplatesTask",
     "type":"object",
     "required": [
-        "projectTemplateTaskId",
-        "projectTemplateId",
-        "parentId",
         "name",
         "status",
         "children",
-        "learningResources"
+        "learningResources",
+        "hasSubtask",
+        "createdBy",
+        "updatedBy"
     ],
     "properties": {
-        "projectTemplateTaskId": {
-            "type": "string"
-        },
-        "externalId": {
-            "type": "string"
-        },
-        "parentId": {
-            "type": "string"
-        },
-        "projectTemplateExternalId": {
-            "type": "string"
-        },
         "name": {
             "type": "string",
             "minLength": 5
@@ -66,6 +54,12 @@
         "hasSubTasks": {
             "type": "boolean",
             "default" : false
+        },
+        "externalId": {
+            "type": "string"
+        },
+        "parentId": {
+            "type": "string"
         },
         "solutionDetails": {
             "type": "string"
