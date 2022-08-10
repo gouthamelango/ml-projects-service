@@ -79,7 +79,7 @@ module.exports = function () {
 
   // All controllers
   global.controllers = requireAll({
-    dirname: PROJECT_ROOT_DIRECTORY + "/controllers",
+    dirname: PROJECT_ROOT_DIRECTORY + "/controllers/v1/",
     resolve: function (Controller) {
       return new Controller();
     }
